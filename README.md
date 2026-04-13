@@ -10,7 +10,7 @@ This system was designed to replace manual outbound prospecting with a scalable,
 
 It integrates scraping tools, AI models, and workflow automation to reduce manual effort and enable consistent, repeatable outbound execution across multiple markets.
 
-The primary goal was to scale outbound acquisition without increasing headcount, by automating research, qualification, and outreach preparation.
+The primary goal was to build a system that could continuously generate and process outbound pipeline without manual intervention.
 
 ---
 
@@ -18,22 +18,30 @@ The primary goal was to scale outbound acquisition without increasing headcount,
 
 Outbound acquisition was initially manual and fragmented:
 
+- We detected markets with high levels of demand and low levels of supply
 - Prospect research was time-consuming
 - Outreach lacked consistency and personalization
 - Leads were not systematically tracked
-- Campaigns were difficult to scale across markets
 
-This created bottlenecks in launching outbound efforts and limited the ability to respond to demand signals in new markets.
+This created bottlenecks in launching outbound efforts and limited the ability to respond to demand signals in target markets.
 
 ---
 
 ## System Architecture
 
-High-level flow:
+```mermaid
+flowchart TD
+    A["Lead Sources\n(Google Maps, Apify)"] --> B["Scraping\n(Firecrawl, Apify)"]
+    B --> C["AI Enrichment\n(OpenAI)"]
+    C --> D["Qualification & Scoring"]
+    D -->|Qualified| E["HubSpot CRM"]
+    D -->|Not qualified| X["Discarded"]
+    E --> F["Outreach\n(Email + SMS via Kustomer)"]
+    F --> G["Sequences & Follow-ups"]
+    F --> H["Pipeline Stages"]
+    F --> I["Reporting\n(Google Sheets)"]
+```
 
-```
-Search / Source → Scraping → Data Extraction → AI Enrichment → Scoring → CRM → Outreach
-```
 
 ### Core Components
 
@@ -45,6 +53,19 @@ Search / Source → Scraping → Data Extraction → AI Enrichment → Scoring �
 | Scoring | Evaluates leads based on ICP criteria |
 | Routing | Sends qualified leads into CRM |
 | Execution | Triggers outreach and follow-up workflows |
+
+---
+
+## System Behavior
+
+This system operates as a multi-step, event-driven workflow orchestrated through n8n.
+
+- Each stage triggers the next through structured outputs (JSON payloads)
+- Data flows between steps via API calls and transformations
+- Conditional logic is used to filter, score, and route leads based on defined criteria
+- Failures at any step can interrupt downstream processes, requiring retry or manual intervention
+
+The system is designed to run in batches per market, allowing parallel execution across multiple regions.
 
 ---
 
@@ -63,7 +84,8 @@ Structured extraction of:
 - Fleet characteristics
 - Pricing signals
 - Location and quality indicators
-- Transformation of unstructured content into usable data
+
+Transforms unstructured content into usable, structured data.
 
 ### 4. Qualification & Scoring
 - Leads scored against ICP criteria
@@ -87,6 +109,7 @@ Structured extraction of:
 | Automation | n8n |
 | Integrations | REST APIs, webhooks |
 | Data Processing | JSON transformations, structured outputs |
+| Data Flow | Structured JSON payloads passed between workflow steps and APIs |
 | AI | LLM-based extraction and enrichment |
 | Storage / Reporting | Google Sheets, CRM systems |
 | Scraping | Web scraping tools (e.g. Firecrawl, Apify) |
@@ -95,10 +118,10 @@ Structured extraction of:
 
 ## Results
 
-- Generated 30–50 qualified prospects per market across multiple U.S. markets
-- Reduced outbound launch time from 1–2 weeks → 1–2 days
-- Enabled onboarding of ~8–12 partners per market
-- Contributed to ~300 net new boats across ~30 markets (2025)
+- Generated 30–50 qualified prospects per market across multiple U.S. markets  
+- Reduced outbound launch time from 1–2 weeks → 1–2 days  
+- Enabled onboarding of ~8–12 partners per market  
+- Contributed to ~300 net new boats across ~30 markets (2025)  
 
 ---
 
@@ -106,24 +129,25 @@ Structured extraction of:
 
 This system was built iteratively and surfaced several challenges:
 
-- **Scraping variability:** Website structures required adaptive extraction logic
-- **Data consistency:** AI outputs required normalization and validation
-- **Error handling:** Some workflows relied on basic retry logic and could be improved with more robust failure handling
-- **Coupling:** Certain steps were tightly connected, limiting modularity
-- **Monitoring:** Limited observability into failures across long-running workflows
+- **Scraping variability:** Website structures required adaptive extraction logic  
+- **Data consistency:** AI outputs required normalization and validation  
+- **Error handling:** Retry logic is partially implemented at the workflow level, but lacks centralized error handling and fallback paths for failed API calls or incomplete data  
+- **State management:** The system does not maintain persistent state across steps, which can lead to duplicated processing or missed records under failure conditions  
+- **Coupling:** Certain steps are tightly connected, limiting modularity and flexibility  
+- **Monitoring:** Limited observability into failures across long-running workflows  
 
 ---
 
 ## Future Improvements
 
-- Introduce queue-based processing to decouple steps
-- Implement centralized logging and monitoring
-- Improve retry and fallback strategies
-- Add data validation layers before CRM insertion
-- Modularize workflows into independent, reusable components
+- Introduce queue-based processing to decouple steps  
+- Implement centralized logging and monitoring  
+- Improve retry and fallback strategies  
+- Add data validation layers before CRM insertion  
+- Modularize workflows into independent, reusable components  
 
 ---
 
 ## Key Takeaway
 
-This system evolved from a set of automation workflows into a scalable outbound infrastructure layer, capable of continuously generating and processing leads with minimal manual intervention.
+This system evolved from a collection of scripts into a loosely-coupled automation pipeline, highlighting the challenges of reliability, observability, and scalability in real-world workflow systems.
