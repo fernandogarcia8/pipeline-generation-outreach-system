@@ -1,0 +1,1723 @@
+{
+  "name": "Prospect Outreach",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.kustomerapp.com/v1/customers/{{ $('Read Outreach Sheet25').item.json[\"Kustomer ID\"] }}/drafts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KUSTOMER_API_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "={{ $('SMS node1').item.json.body }}"
+            },
+            {
+              "name": "channel",
+              "value": "sms"
+            },
+            {
+              "name": "conversation",
+              "value": "={{ $('SMS node1').item.json.conversation }}"
+            },
+            {
+              "name": "from",
+              "value": "YOUR_PHONE_NUMBER"
+            },
+            {
+              "name": "to",
+              "value": "={{ $('Read Outreach Sheet25').item.json.Phone }}"
+            },
+            {
+              "name": "payload",
+              "value": "={{ $('SMS node1').item.json.payload }}"
+            },
+            {
+              "name": "sendAt",
+              "value": "={{ $json.sendAt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        60
+      ],
+      "id": "311f30e9-928a-418f-9012-522816a8663b",
+      "name": "Send Text26",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_2",
+          "mode": "list",
+          "cachedResultName": "San Diego | Supply Acquisition Trip March 2026",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 711784275,
+          "mode": "list",
+          "cachedResultName": "Prospects",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit#gid=711784275"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Outreach Status": "Contact 1st round",
+            "Kustomer ID": "={{ $('Read Outreach Sheet25').item.json[\"Kustomer ID\"] }}",
+            "Kustomer Link": "=https://[company].kustomerapp.com/app/customers/{{ $('Loop over items25').item.json['Kustomer ID'] }}/event/{{ $('Create Conversation20').item.json.data.id }}"
+          },
+          "matchingColumns": [
+            "Kustomer ID"
+          ],
+          "schema": [
+            {
+              "id": "Charter Name",
+              "displayName": "Charter Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CONTACT_NAME",
+              "displayName": "CONTACT_NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type (fishing, Boat rental, sailing)",
+              "displayName": "Type (fishing, Boat rental, sailing)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Boat Type",
+              "displayName": "Boat Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Boat Count",
+              "displayName": "Boat Count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Activities/Events/Services",
+              "displayName": "Activities/Events/Services",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Kustomer ID",
+              "displayName": "Kustomer ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "BookingSoftware",
+              "displayName": "BookingSoftware",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Already on [Company]?",
+              "displayName": "Already on [Company]?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Admin Link",
+              "displayName": "Admin Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Social Handles ",
+              "displayName": "Social Handles ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "BS Team Lead",
+              "displayName": "BS Team Lead",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Outreach Status",
+              "displayName": "Outreach Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Replied?",
+              "displayName": "Replied?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Kustomer Link",
+              "displayName": "Kustomer Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1920,
+        160
+      ],
+      "id": "e34c5b11-a0f0-457a-a68a-f327eafd6d5a",
+      "name": "Append or update row in sheet28",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZEuSbjlDo8YRg4FJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.kustomerapp.com/v1/customers/{{ $('Read Outreach Sheet25').item.json[\"Kustomer ID\"] }}/drafts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KUSTOMER_API_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "={{ $('Email node1').item.json.body }}"
+            },
+            {
+              "name": "channel",
+              "value": "={{ $('Email node1').item.json.channel }}"
+            },
+            {
+              "name": "conversation",
+              "value": "={{ $('Email node1').item.json.conversation }}"
+            },
+            {
+              "name": "from",
+              "value": "={{ $('Email node1').item.json.from }}"
+            },
+            {
+              "name": "to",
+              "value": "={{ $('Email node1').item.json.to }}"
+            },
+            {
+              "name": "payload",
+              "value": "={{ $('Email node1').item.json.payload }}"
+            },
+            {
+              "name": "sendAt",
+              "value": "={{ $('Email node1').item.json.sendAt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        260
+      ],
+      "id": "661abcee-cae1-47ba-b8f3-1969b82cebbb",
+      "name": "Send Email26"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kustomerapp.com/v1/conversations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KUSTOMER_API_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"name\": \"Quick question about your charter\",\n  \"customer\": \"{{ $json[\"Kustomer ID\"] }}\",\n  \"tags\": [\"n8n\",\"supply_acq_sandiego\"],\n  \"assignedTeams\": [\"69b1d655010fbbf86a5557d6\"]\n}\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        180
+      ],
+      "id": "da79c9f2-d9e5-4afc-9661-dd04eabfebbe",
+      "name": "Create Conversation20"
+    },
+    {
+      "parameters": {
+        "content": "San Diego - PROSPECTS - Contact 1st round",
+        "height": 460,
+        "width": 2280,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "b78f310d-3bd1-4f83-9cfa-7c04fa25bc1d",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_2",
+          "mode": "list",
+          "cachedResultName": "San Diego | Supply Acquisition Trip March 2026",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 711784275,
+          "mode": "list",
+          "cachedResultName": "Prospects",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit#gid=711784275"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Outreach Status",
+              "lookupValue": "Pending Outreach"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -80,
+        180
+      ],
+      "id": "b88c37a2-dd0f-416a-9ff3-139edd48e525",
+      "name": "Read Outreach Sheet25",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZEuSbjlDo8YRg4FJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        160,
+        180
+      ],
+      "id": "7831764c-5dfb-426c-92c2-5ae5d3a86d0c",
+      "name": "Loop over items25"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9bf122df-d625-4402-8e35-4b87b75530ea",
+              "leftValue": "={{ $('Read Outreach Sheet25').item.json.Phone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        780,
+        80
+      ],
+      "id": "9c107da2-af6a-4eaa-8a5f-5e9cbbb03ed1",
+      "name": "Has Phone?1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date().toISOString();\n\nconst conversationId = $json.conversationId;\nconst phone = $json.phone;\nif (!phone) return [];\n\nconst greeting = $json.greeting;\n\nconst smsBody = `${greeting} Tyler from [Company], just circling back here.\n\nWe’re about to launch our fishing charter campaign in San Diego and are getting the last few captains set up before it goes live. Would love to have you onboard.\n\nWould you be open to a quick chat?`;\n\nreturn [{\n  json: {\n    body: smsBody,\n    channel: \"sms\",\n    conversation: conversationId,\n    from: \"YOUR_PHONE_NUMBER\",\n    to: phone,\n    sendAt: now,\n    payload: {\n      draftJs: {\n        blocks: [{ text: smsBody, key: \"abc123\", type: \"unstyled\", depth: 0, data: {}, inlineStyleRanges: [], entityRanges: [] }],\n        entityMap: {}\n      }\n    }\n  }\n}];\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        60
+      ],
+      "id": "98d86d48-cb1e-4093-ad4f-b518a82a43db",
+      "name": "SMS node1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date().toISOString();\n\n// Conversation ID\nconst conversationId =\n  $json?.data?.id ||\n  $json?.conversationId ||\n  $node[\"Create Conversation20\"]?.json?.data?.id;\n\n// Row data\nconst row = $json;\n\n// Email\nconst emailRaw = row.Email ?? row.EMAIL ?? \"\";\nconst email = String(emailRaw).trim();\n\n// If there's no email, SKIP sending email for this owner\nif (!email) return [];\n\n// Use greeting from upstream node if it already exists\nlet greetingLine = row.greeting;\n\n// Fallback: build greeting from CONTACT_NAME\nif (!greetingLine) {\n  const rawName = String(row.CONTACT_NAME ?? \"\").trim();\n  const nameParts = rawName.split(/\\s+/);\n\n  let displayName = \"\";\n\n  if (/^(capt\\.?|captain)$/i.test(nameParts[0]) && nameParts.length > 1) {\n    displayName = `${nameParts[0]} ${nameParts[1]}`;\n  } else {\n    displayName = nameParts[0] || \"\";\n  }\n\n  greetingLine = displayName ? `Hello ${displayName},` : \"Hello,\";\n}\n\n// Optional \"to.name\"\nconst toObj = email ? { email } : null;\n\nconst emailBody = `${greetingLine}\n\nJust wanted to circle back on my previous message.\n\nWe’re about to launch our fishing charter campaign in San Diego and are getting the last few captains and operators set up on the platform before it goes live. \n\nI’d love to include you so you can benefit from the additional exposure. \n\nWould you be open to a quick call to see if it makes sense?\n\nBest,\nTyler`;\n\nconst subject = \"Quick question about your charter\";\n\nreturn [\n  {\n    json: {\n      body: emailBody,\n      channel: \"email\",\n      conversation: conversationId,\n      from: {\n        email: \"fishingteam@[company].com\",\n        name: \"[Company] Fishing Team\",\n      },\n      to: toObj,\n      subject,\n      sendAt: now,\n      payload: {\n        draftJs: {\n          blocks: [\n            {\n              text: emailBody,\n              key: \"abc123\",\n              type: \"unstyled\",\n              depth: 0,\n              data: {},\n              inlineStyleRanges: [],\n              entityRanges: [],\n            },\n          ],\n          entityMap: {},\n        },\n      },\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        260
+      ],
+      "id": "24ad2c47-4aa7-4b41-b16a-51100ac9eb12",
+      "name": "Email node1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "df0002fe-3701-4989-969e-3818b93d5a37",
+              "leftValue": "={{ $('Read Outreach Sheet25').item.json.Email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        780,
+        260
+      ],
+      "id": "e8fb1edf-f083-4df8-b933-5d0df329d3f4",
+      "name": "Has email?1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        160
+      ],
+      "id": "85d44215-706a-4d83-8519-937a2a477697",
+      "name": "Merge1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fa2d6ac7-f795-4a3e-9501-950ad79d52ef",
+              "name": "sms_sent",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        60
+      ],
+      "id": "044a1463-b9e3-477e-9c43-60aad590247b",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8624eb2e-6630-49ef-8958-b51eb57702d8",
+              "name": "email_sent",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1520,
+        260
+      ],
+      "id": "acec624a-271d-4fb5-b0bd-7cec9e9b0838",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inputs at this point should include the sheet row (from Loop) and the Kustomer response.\n// We will attach conversationId onto the item so downstream branches don't need $node references.\n\nconst conversationId = $node[\"Create Conversation20\"].json.data.id;\nconst row = $node[\"Loop over items25\"].json;\n\n// normalize fields once\nconst phone = String(row.Phone ?? row.PHONE ?? \"\").trim().replace(/[^\\d+]/g, \"\");\nconst email = String(row.Email ?? row.EMAIL ?? \"\").trim();\n\nconst rawName = String(row.CONTACT_NAME ?? \"\").trim();\nconst nameParts = rawName.split(/\\s+/);\n\nlet firstName = \"\";\n\n// If name starts with Capt. or Captain, keep title + first name\nif (/^(capt\\.?|captain)$/i.test(nameParts[0]) && nameParts.length > 1) {\n  firstName = `${nameParts[0]} ${nameParts[1]}`;\n} else {\n  firstName = nameParts[0];\n}\n\nconst greeting = firstName ? `Hello ${firstName},` : \"Hello,\";\n\nreturn [{\n  json: {\n    ...row,              // keep all your sheet columns\n    conversationId,\n    phone,\n    email,\n    firstName,\n    greeting\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        180
+      ],
+      "id": "b007fdcf-6c18-48e2-8fcb-d4f1b663590b",
+      "name": "Prepare Context1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.kustomerapp.com/v1/customers/{{ $('Read Outreach Sheet').item.json[\"Kustomer ID\"] }}/drafts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KUSTOMER_API_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "={{ $('SMS node').item.json.body }}"
+            },
+            {
+              "name": "channel",
+              "value": "sms"
+            },
+            {
+              "name": "conversation",
+              "value": "={{ $('SMS node').item.json.conversation }}"
+            },
+            {
+              "name": "from",
+              "value": "YOUR_PHONE_NUMBER"
+            },
+            {
+              "name": "to",
+              "value": "={{ $('Read Outreach Sheet').item.json.Phone }}"
+            },
+            {
+              "name": "payload",
+              "value": "={{ $('SMS node').item.json.payload }}"
+            },
+            {
+              "name": "sendAt",
+              "value": "={{ $json.sendAt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        560
+      ],
+      "id": "3179b12a-5777-407b-a9c1-150c4d6e3c19",
+      "name": "Send Text",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_2",
+          "mode": "list",
+          "cachedResultName": "San Diego | Supply Acquisition Trip March 2026",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 711784275,
+          "mode": "list",
+          "cachedResultName": "Prospects",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit#gid=711784275"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Outreach Status": "Contact 3rd round",
+            "Kustomer ID": "={{ $('Read Outreach Sheet').item.json[\"Kustomer ID\"] }}",
+            "Email 2": "={{ \n  (() => {\n    const now = new Date();\n    const month = String(now.getMonth() + 1).padStart(2, '0');\n    const day = String(now.getDate()).padStart(2, '0');\n    const year = now.getFullYear();\n    return `${month}-${day}-${year}`;  // mm-dd-yyyy\n  })()\n}}",
+            "SMS 2": "={{ \n  (() => {\n    const now = new Date();\n    const month = String(now.getMonth() + 1).padStart(2, '0');\n    const day = String(now.getDate()).padStart(2, '0');\n    const year = now.getFullYear();\n    return `${month}-${day}-${year}`;  // mm-dd-yyyy\n  })()\n}}"
+          },
+          "matchingColumns": [
+            "Kustomer ID"
+          ],
+          "schema": [
+            {
+              "id": "Charter Name",
+              "displayName": "Charter Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CONTACT_NAME",
+              "displayName": "CONTACT_NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type (fishing, Boat rental, sailing)",
+              "displayName": "Type (fishing, Boat rental, sailing)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Boat Type",
+              "displayName": "Boat Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Boat Count",
+              "displayName": "Boat Count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Activities/Events/Services",
+              "displayName": "Activities/Events/Services",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Kustomer ID",
+              "displayName": "Kustomer ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "BookingSoftware",
+              "displayName": "BookingSoftware",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Already on [Company]?",
+              "displayName": "Already on [Company]?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Admin Link",
+              "displayName": "Admin Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Social Handles ",
+              "displayName": "Social Handles ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Team Lead",
+              "displayName": "Team Lead",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Outreach Status",
+              "displayName": "Outreach Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Replied?",
+              "displayName": "Replied?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Kustomer Link",
+              "displayName": "Kustomer Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email 1",
+              "displayName": "Email 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SMS 1",
+              "displayName": "SMS 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Call",
+              "displayName": "Call",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email 2",
+              "displayName": "Email 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SMS 2",
+              "displayName": "SMS 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1880,
+        660
+      ],
+      "id": "07f4801e-0a53-41db-8fda-1fd7fa3e9b1c",
+      "name": "Append or update row in sheet29",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZEuSbjlDo8YRg4FJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.kustomerapp.com/v1/customers/{{ $('Read Outreach Sheet').item.json[\"Kustomer ID\"] }}/drafts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KUSTOMER_API_TOKEN"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "={{ $('Email node').item.json.body }}"
+            },
+            {
+              "name": "channel",
+              "value": "={{ $('Email node').item.json.channel }}"
+            },
+            {
+              "name": "conversation",
+              "value": "={{ $('Email node').item.json.conversation }}"
+            },
+            {
+              "name": "from",
+              "value": "={{ $('Email node').item.json.from }}"
+            },
+            {
+              "name": "to",
+              "value": "={{ $('Email node').item.json.to }}"
+            },
+            {
+              "name": "payload",
+              "value": "={{ $('Email node').item.json.payload }}"
+            },
+            {
+              "name": "sendAt",
+              "value": "={{ $('Email node').item.json.sendAt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        760
+      ],
+      "id": "47341274-d855-4473-9d58-7d686ea01335",
+      "name": "Send Email"
+    },
+    {
+      "parameters": {
+        "content": "San Diego - PROSPECTS - Contact 3rd round\n",
+        "height": 460,
+        "width": 2280,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        500
+      ],
+      "typeVersion": 1,
+      "id": "13af2cb0-c86d-412e-b4bb-b9c52833313d",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_2",
+          "mode": "list",
+          "cachedResultName": "San Diego | Supply Acquisition Trip March 2026",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 711784275,
+          "mode": "list",
+          "cachedResultName": "Prospects",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit#gid=711784275"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Replied?",
+              "lookupValue": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -80,
+        660
+      ],
+      "id": "b1e2de19-27d9-4fce-b12c-dae93aad06f7",
+      "name": "Read Outreach Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZEuSbjlDo8YRg4FJ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        280,
+        660
+      ],
+      "id": "b8c298fb-e457-4a0a-9b6a-4629bd54752f",
+      "name": "Loop over items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9bf122df-d625-4402-8e35-4b87b75530ea",
+              "leftValue": "={{ $('Read Outreach Sheet').item.json.Phone }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        580
+      ],
+      "id": "f061ca3a-198d-4883-a753-1318144360bd",
+      "name": "Has Phone?"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date().toISOString();\n\nconst conversationId = $json.conversationId;\nconst phone = $json.phone;\nif (!phone) return [];\n\nconst greeting = $json.greeting;\n\nconst smsBody = `${greeting} Tyler from [Company], just circling back here. \n\nWe’re about to launch our fishing charter campaign in San Diego and are getting the last few captains set up before it goes live! I'd love to include you\n\nAre you available for a quick chat?`;\n\nreturn [{\n  json: {\n    body: smsBody,\n    channel: \"sms\",\n    conversation: conversationId,\n    from: \"YOUR_PHONE_NUMBER\",\n    to: phone,\n    sendAt: now,\n    payload: {\n      draftJs: {\n        blocks: [{ text: smsBody, key: \"abc123\", type: \"unstyled\", depth: 0, data: {}, inlineStyleRanges: [], entityRanges: [] }],\n        entityMap: {}\n      }\n    }\n  }\n}];\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        560
+      ],
+      "id": "c8b9e78f-47d0-4888-ba3d-faade932a284",
+      "name": "SMS node",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date().toISOString();\n\n// Conversation ID\nconst conversationId =\n  $json?.data?.id ||\n  $json?.conversationId ||\n  $node[\"Create Conversation\"]?.json?.data?.id;\n\n// Row data\nconst row = $json;\n\n// Email\nconst emailRaw = row.Email ?? row.EMAIL ?? \"\";\nconst email = String(emailRaw).trim();\n\n// If there's no email, SKIP sending email for this owner\nif (!email) return [];\n\n// Use greeting from upstream node if it already exists\nlet greetingLine = row.greeting;\n\n// Fallback: build greeting from CONTACT_NAME\nif (!greetingLine) {\n  const rawName = String(row.CONTACT_NAME ?? \"\").trim();\n  const nameParts = rawName.split(/\\s+/);\n\n  let displayName = \"\";\n\n  if (/^(capt\\.?|captain)$/i.test(nameParts[0]) && nameParts.length > 1) {\n    displayName = `${nameParts[0]} ${nameParts[1]}`;\n  } else {\n    displayName = nameParts[0] || \"\";\n  }\n\n  greetingLine = displayName ? `Hello ${displayName},` : \"Hello,\";\n}\n\n// Optional \"to.name\"\nconst toObj = email ? { email } : null;\n\nconst emailBody = `${greetingLine}\n\nJust wanted to circle back on my previous message.\n\nWe’re about to launch our fishing charter campaign in San Diego and are getting the last few captains set up on the platform before it goes live.\n\nI'd love to include you so you can benefit from the additional exposure once the campaign launches.\n\nWould you be open to a quick call to see if it makes sense?\n\nBest,\nTyler`;\n\nconst subject = \"Quick question about your charter\";\n\nreturn [\n  {\n    json: {\n      body: emailBody,\n      channel: \"email\",\n      conversation: conversationId,\n      from: {\n        email: \"fishingteam@[company].com\",\n        name: \"[Company] Fishing Team\",\n      },\n      to: toObj,\n      subject,\n      sendAt: now,\n      payload: {\n        draftJs: {\n          blocks: [\n            {\n              text: emailBody,\n              key: \"abc123\",\n              type: \"unstyled\",\n              depth: 0,\n              data: {},\n              inlineStyleRanges: [],\n              entityRanges: [],\n            },\n          ],\n          entityMap: {},\n        },\n      },\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        760
+      ],
+      "id": "f65ada61-5865-4711-aa9e-66a3126d6e2c",
+      "name": "Email node",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "df0002fe-3701-4989-969e-3818b93d5a37",
+              "leftValue": "={{ $('Read Outreach Sheet').item.json.Email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        760
+      ],
+      "id": "de4f5952-f5c7-4d1d-a18d-1e3b8f4a97b6",
+      "name": "Has email?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1720,
+        660
+      ],
+      "id": "4b7b7b78-54d1-4816-9433-437602dac578",
+      "name": "Merge",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fa2d6ac7-f795-4a3e-9501-950ad79d52ef",
+              "name": "sms_sent",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        560
+      ],
+      "id": "10b495b1-5f0e-43d3-89ef-e584386806b8",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8624eb2e-6630-49ef-8958-b51eb57702d8",
+              "name": "email_sent",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1540,
+        760
+      ],
+      "id": "afc41d08-9502-4767-8b58-5cd1d01b69be",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "jsCode": "const row = $json;\n\nconst phone = String(row.Phone ?? row.PHONE ?? \"\").trim().replace(/[^\\d+]/g, \"\");\nconst email = String(row.Email ?? row.EMAIL ?? \"\").trim();\n\nconst rawName = String(row.CONTACT_NAME ?? \"\").trim();\nconst nameParts = rawName.split(/\\s+/);\n\nlet firstName = \"\";\n\nif (/^(capt\\.?|captain)$/i.test(nameParts[0]) && nameParts.length > 1) {\n  firstName = `${nameParts[0]} ${nameParts[1]}`;\n} else {\n  firstName = nameParts[0] || \"\";\n}\n\nconst greeting = firstName ? `Hello ${firstName},` : \"Hello,\";\n\nreturn [\n  {\n    json: {\n      ...row,\n      phone,\n      email,\n      firstName,\n      greeting\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        660
+      ],
+      "id": "a0958081-7984-4780-98d0-850c097c324a",
+      "name": "Prepare Context"
+    },
+    {
+      "parameters": {
+        "jsCode": "const row = $json;\n\nconst link = String(row[\"Kustomer Link\"] || \"\").trim();\nconst match = link.match(/event\\/([^/?#]+)/);\nconst conversationId = match ? match[1] : \"\";\n\nif (!conversationId) {\n  return [];\n}\n\nreturn [\n  {\n    json: {\n      ...row,\n      conversationId,\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        660
+      ],
+      "id": "beb70529-ffcf-4a9f-916b-b536aeeb2aec",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "30ef2b1a-07d8-4021-a163-98a494a70581",
+              "leftValue": "={{ $json['Outreach Status'] }}",
+              "rightValue": "Contact 1st round",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "cbe554ce-ae50-462b-8bc0-e0591ef42ce4",
+              "leftValue": "={{ $json['Outreach Status'] }}",
+              "rightValue": "Contact 2nd round",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        100,
+        660
+      ],
+      "id": "6909db36-6b7a-4ee2-b6cb-e7a5c5f8617c",
+      "name": "Filter5"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Send Text26": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet28": {
+      "main": [
+        [
+          {
+            "node": "Loop over items25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email26": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Conversation20": {
+      "main": [
+        [
+          {
+            "node": "Prepare Context1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Outreach Sheet25": {
+      "main": [
+        [
+          {
+            "node": "Loop over items25",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop over items25": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Create Conversation20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Phone?1": {
+      "main": [
+        [
+          {
+            "node": "SMS node1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS node1": {
+      "main": [
+        [
+          {
+            "node": "Send Text26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email node1": {
+      "main": [
+        [
+          {
+            "node": "Send Email26",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has email?1": {
+      "main": [
+        [
+          {
+            "node": "Email node1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet28",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Prepare Context1": {
+      "main": [
+        [
+          {
+            "node": "Has email?1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Phone?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Text": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet29": {
+      "main": [
+        [
+          {
+            "node": "Loop over items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Outreach Sheet": {
+      "main": [
+        [
+          {
+            "node": "Filter5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop over items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Phone?": {
+      "main": [
+        [
+          {
+            "node": "SMS node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS node": {
+      "main": [
+        [
+          {
+            "node": "Send Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email node": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has email?": {
+      "main": [
+        [
+          {
+            "node": "Email node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet29",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Prepare Context": {
+      "main": [
+        [
+          {
+            "node": "Has email?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Has Phone?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Prepare Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter5": {
+      "main": [
+        [
+          {
+            "node": "Loop over items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4aa3c0ed-fde5-4cb8-b66f-0b9a70b5bf65",
+  "meta": {
+    "instanceId": "YOUR_N8N_INSTANCE_ID"
+  },
+  "id": "yuka81KkSDkFw8ix",
+  "tags": []
+}
