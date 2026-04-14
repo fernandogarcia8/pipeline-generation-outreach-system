@@ -94,6 +94,7 @@ Transforms unstructured content into usable, structured data.
 ### 5. Personalization
 - Dynamic generation of outreach messages using structured data
 - Context-aware messaging (services, location, demand signals)
+- See the full prompt: [prompts/enrichment-prompt.md](prompts/enrichment-prompt.md)
 
 ### 6. CRM Integration & Outreach
 - Automated lead insertion into CRM
@@ -109,10 +110,11 @@ Transforms unstructured content into usable, structured data.
 | Automation | n8n |
 | Integrations | REST APIs, webhooks |
 | Data Processing | JSON transformations, structured outputs |
-| Data Flow | Structured JSON payloads passed between workflow steps and APIs |
-| AI | LLM-based extraction and enrichment |
-| Storage / Reporting | Google Sheets, CRM systems |
-| Scraping | Web scraping tools (e.g. Firecrawl, Apify) |
+| AI | LLM-based extraction and enrichment (OpenAI) |
+| CRM | HubSpot (lead storage and pipeline tracking) |
+| Outreach Execution | Kustomer (Email + SMS delivery, conversation threading) |
+| Storage / Reporting | Google Sheets |
+| Scraping | Firecrawl, Apify |
 
 ---
 
