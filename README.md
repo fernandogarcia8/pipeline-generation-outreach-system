@@ -141,9 +141,8 @@ Transforms unstructured content into usable, structured data.
 
 ## Results
 
-- Generated 30–50 qualified prospects per market across multiple U.S. markets  
+- Generated qualified prospects per market across multiple U.S. markets  
 - Reduced outbound launch time from 1–2 weeks → 1–2 days  
-- Enabled onboarding of ~8–12 partners per market  
 - Contributed to ~300 net new boats across ~30 markets (2025)  
 
 ---
