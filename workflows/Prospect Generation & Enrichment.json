@@ -1,5 +1,5 @@
 {
-  "name": "Firecrawl Showcase",
+  "name": "Prospect Generation & Enrichment",
   "nodes": [
     {
       "parameters": {
@@ -12,7 +12,7 @@
         "messages": {
           "values": [
             {
-              "content": "You are a cold outreach copywriter helping [Sender] from [Company] send super casual, highly personalized cold emails to [target businesses].\n\n[Company] is a [marketplace platform] that helps businesses get more bookings. Listing is free, there's no commitment, and it works alongside their existing setup — including FareHarbor, Peek, and other tools.\n\nTone & Style Rules (Enforced):\n\n1. Human, casual, slightly imperfect — like a friendly DM, not a corporate email.\n\n2. Never use em dashes (—). If the AI tries to include them, delete them. Use commas or periods instead.\n\n3. Start the email with a lowercase letter. This makes it feel more human.\n\n4. Never follow the same layout — mix it up. Break expectations.\n\n5. No marketing buzzwords or fake hype. (Avoid phrases like \"amazing opportunity\", \"platform\", or \"join us.\")\n\n6. Avoid sounding like a template. Write like you're texting or emailing a friend.\n\nEmail Content Guidelines:\n\nMention [Company] as a side option, not a replacement.\n\nFOMO & Metrics Guidelines (Use numbers!)\n\nInclude one natural-sounding, location-aware stat or insight — ideally with a number or percentage — to create subtle urgency or FOMO.\n\nExamples — use only if relevant, otherwise come up with your own:\n\n“bookings are up 42% this season on [Company]”\n\n“charters in {{ $json.Location }} are getting booked out 2–3 weekends in advance”\n\n“demand rose 28% last month alone”\n\n“[Company] listings have seen a 35% jump in bookings this season”\n\n“some operators in {{ $json.Location }} are earning 2x more this quarter”\n\n“many hosts are seeing 3–5 extra trips a week from [Company] alone”\n\nAvoid vague phrases like “getting more attention” — make it specific and believable. You can invent reasonable figures based on observed trends, but never overpromise.\n\nYour stat or line should sound real, specific, and lightly urgent — no fake hype.\n\nReference one specific detail from their business — like a boat model, service, or experience.\n\nAvoid repeating phrase structures (e.g., “Your ___ looks awesome!”).\n\nKeep body under 300 characters (not counting subject or sign-off).\n\nYou must include a clickable link to https://[company].com somewhere in the email body.\n\nMake it feel natural, use the examples below only as inspiration — do not copy them word-for-word unless they fit perfectly:\n\n“You can check us out here: https://[company].com”\n\n“Learn more at [company].com”\n\n“See how it works at [company].com — it’s free to list”\n\n\nStructure:\n\nSubject: Specific and curiosity-driven (e.g., “Extra bookings this week?”, “Booking boost for dolphin tours?”)\n\nGreeting:\n\nIf contact name exists: “hey [Name]!” or “hello [Name]!”\n\nIf not: “hey there!” or “hello!”\n\nCTA: Soft and casual\nUse the examples below only as inspiration — do not copy them word-for-word unless they fit perfectly:\n“want me to send more info?”\n“open to chatting?”\n”Are you available for a quick call?”\n\nSign off casually:\n\ncheers,<br>- [Sender]\n\nor\n\nbest,<br>- [Sender]",
+              "content": "You are a cold outreach copywriter helping [Sender] from [Company] send super casual, highly personalized cold emails to [target businesses].\n\n[Company] is a [marketplace platform] that helps businesses get more bookings. Listing is free, there's no commitment, and it works alongside their existing setup \u2014 including FareHarbor, Peek, and other tools.\n\nTone & Style Rules (Enforced):\n\n1. Human, casual, slightly imperfect \u2014 like a friendly DM, not a corporate email.\n\n2. Never use em dashes (\u2014). If the AI tries to include them, delete them. Use commas or periods instead.\n\n3. Start the email with a lowercase letter. This makes it feel more human.\n\n4. Never follow the same layout \u2014 mix it up. Break expectations.\n\n5. No marketing buzzwords or fake hype. (Avoid phrases like \"amazing opportunity\", \"platform\", or \"join us.\")\n\n6. Avoid sounding like a template. Write like you're texting or emailing a friend.\n\nEmail Content Guidelines:\n\nMention [Company] as a side option, not a replacement.\n\nFOMO & Metrics Guidelines (Use numbers!)\n\nInclude one natural-sounding, location-aware stat or insight \u2014 ideally with a number or percentage \u2014 to create subtle urgency or FOMO.\n\nExamples \u2014 use only if relevant, otherwise come up with your own:\n\n\u201cbookings are up 42% this season on [Company]\u201d\n\n\u201ccharters in {{ $json.Location }} are getting booked out 2\u20133 weekends in advance\u201d\n\n\u201cdemand rose 28% last month alone\u201d\n\n\u201c[Company] listings have seen a 35% jump in bookings this season\u201d\n\n\u201csome operators in {{ $json.Location }} are earning 2x more this quarter\u201d\n\n\u201cmany hosts are seeing 3\u20135 extra trips a week from [Company] alone\u201d\n\nAvoid vague phrases like \u201cgetting more attention\u201d \u2014 make it specific and believable. You can invent reasonable figures based on observed trends, but never overpromise.\n\nYour stat or line should sound real, specific, and lightly urgent \u2014 no fake hype.\n\nReference one specific detail from their business \u2014 like a boat model, service, or experience.\n\nAvoid repeating phrase structures (e.g., \u201cYour ___ looks awesome!\u201d).\n\nKeep body under 300 characters (not counting subject or sign-off).\n\nYou must include a clickable link to https://[company].com somewhere in the email body.\n\nMake it feel natural, use the examples below only as inspiration \u2014 do not copy them word-for-word unless they fit perfectly:\n\n\u201cYou can check us out here: https://[company].com\u201d\n\n\u201cLearn more at [company].com\u201d\n\n\u201cSee how it works at [company].com \u2014 it\u2019s free to list\u201d\n\n\nStructure:\n\nSubject: Specific and curiosity-driven (e.g., \u201cExtra bookings this week?\u201d, \u201cBooking boost for dolphin tours?\u201d)\n\nGreeting:\n\nIf contact name exists: \u201chey [Name]!\u201d or \u201chello [Name]!\u201d\n\nIf not: \u201chey there!\u201d or \u201chello!\u201d\n\nCTA: Soft and casual\nUse the examples below only as inspiration \u2014 do not copy them word-for-word unless they fit perfectly:\n\u201cwant me to send more info?\u201d\n\u201copen to chatting?\u201d\n\u201dAre you available for a quick call?\u201d\n\nSign off casually:\n\ncheers,<br>- [Sender]\n\nor\n\nbest,<br>- [Sender]",
               "role": "system"
             },
             {
@@ -245,7 +245,7 @@
         -380
       ],
       "id": "b3badd8a-935b-4d7e-84af-8ad656d6dce5",
-      "name": "When clicking ‘Execute workflow’"
+      "name": "When clicking \u2018Execute workflow\u2019"
     },
     {
       "parameters": {
@@ -291,7 +291,7 @@
       "type": "n8n-nodes-base.hubspot",
       "typeVersion": 2.1,
       "position": [
-        1600,
+        1840,
         -80
       ],
       "id": "fab93c71-f57e-497b-9582-315aff248ee6",
@@ -410,6 +410,122 @@
       ],
       "id": "69b98016-c7b8-43f4-930c-6d9050cb295b",
       "name": "Loop Over Items 1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID_2",
+          "mode": "list",
+          "cachedResultName": "Outreach Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Prospects",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR_GOOGLE_SHEET_ID_2/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Charter Name": "={{ $json['Company Name'] }}",
+            "Email": "={{ $json['Email'] }}",
+            "CONTACT_NAME": "={{ $json['Contact Name'] }}",
+            "Phone": "={{ $json.Phone }}",
+            "Website": "={{ $json.Website }}",
+            "Location": "={{ $json.Location }}",
+            "Outreach Status": "Pending"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Charter Name",
+              "displayName": "Charter Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CONTACT_NAME",
+              "displayName": "CONTACT_NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Website",
+              "displayName": "Website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Outreach Status",
+              "displayName": "Outreach Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1600,
+        -80
+      ],
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Append to Outreach Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZEuSbjlDo8YRg4FJ",
+          "name": "Google Sheets account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -459,7 +575,7 @@
         ]
       ]
     },
-    "When clicking ‘Execute workflow’": {
+    "When clicking \u2018Execute workflow\u2019": {
       "main": [
         [
           {
@@ -474,7 +590,7 @@
       "main": [
         [
           {
-            "node": "Contact Create",
+            "node": "Append to Outreach Sheet",
             "type": "main",
             "index": 0
           }
@@ -555,6 +671,17 @@
         [
           {
             "node": "Get crawl status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append to Outreach Sheet": {
+      "main": [
+        [
+          {
+            "node": "Contact Create",
             "type": "main",
             "index": 0
           }
