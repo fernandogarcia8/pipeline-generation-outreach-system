@@ -31,16 +31,37 @@ This created bottlenecks in launching outbound efforts and limited the ability t
 
 ```mermaid
 flowchart TD
-    A["Lead Sources\n(Google Maps, Apify)"] --> B["Scraping\n(Firecrawl, Apify)"]
-    B --> C["AI Enrichment\n(OpenAI)"]
-    C --> D["Qualification & Scoring"]
-    D -->|Qualified| E["HubSpot CRM"]
-    D -->|Not qualified| X["Discarded"]
-    E --> F["Outreach\n(Email + SMS via Kustomer)"]
-    F --> G["Sequences & Follow-ups"]
-    F --> H["Pipeline Stages"]
-    F --> I["Reporting\n(Google Sheets)"]
+    subgraph WF1["Workflow 1 — Prospect Generation & Enrichment"]
+        A["Lead Sources\n(Google Maps, Apify)"] --> B["Prospect Database\n(Google Sheets)"]
+        B --> C["Web Scraping\n(Firecrawl)"]
+        C --> D["AI Enrichment\n(OpenAI)"]
+        D --> E{"Qualified?"}
+        E -->|No| X["Discarded"]
+        E -->|Yes| F["Google Sheets\n(Outreach Queue)"]
+        E -->|Yes| G["HubSpot CRM"]
+    end
+
+    subgraph WF2["Workflow 2 — Prospect Outreach"]
+        H["Read Prospects\n(Google Sheets)"] --> I["Create Conversation\n(Kustomer)"]
+        I --> J{"Has Phone\nor Email?"}
+        J -->|Phone| K["Send SMS"]
+        J -->|Email| L["Send Email"]
+        K --> M["Update Sheet\n(Status Tracking)"]
+        L --> M
+    end
+
+    F -->|Handoff| H
 ```
+
+---
+
+## Workflow Screenshots
+
+### Workflow 1 — Prospect Generation & Enrichment
+![Prospect Generation & Enrichment](docs/Prospect%20Generation%20%26%20Enrichment.png)
+
+### Workflow 2 — Prospect Outreach
+![Prospect Outreach](docs/Prospect%20Outreach.png)
 
 
 ### Core Components
