@@ -143,9 +143,9 @@ Transforms unstructured content into usable, structured data.
 
 ## Results
 
-- Generated qualified prospects per market across multiple U.S. markets  
-- Reduced outbound launch time from 1–2 weeks → 1–2 days  
-- Contributed to ~300 net new boats across ~30 markets (2025)  
+- Built and deployed across ~30 U.S. cities, contacting ~2,000 businesses with a ~30% response rate
+- Reduced outbound launch time from 1–2 weeks to 1–2 days per city
+- Contributed to ~300 net new boats added to the platform (2025)
 
 ---
 
