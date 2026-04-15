@@ -6,11 +6,13 @@ End-to-end automation system for sourcing, enriching, qualifying, and converting
 
 ## Overview
 
-This system was designed to replace manual outbound prospecting with a scalable, automated pipeline that continuously generates, evaluates, and routes qualified leads into a CRM.
+Built for a boat rental marketplace. This system was designed to support a proactive supply acquisition strategy in markets where demand was growing but supply was insufficient.
 
-It integrates scraping tools, AI models, and workflow automation to reduce manual effort and enable consistent, repeatable outbound execution across multiple markets.
+Unlike markets where supply was coming in organically or through inbound channels, these were markets we intentionally targeted as a team — identifying the gap and going after it before it became a bottleneck.
 
-The primary goal was to build a system that could continuously generate and process outbound pipeline without manual intervention.
+To do that at scale, we needed a repeatable, automated system that could source, evaluate, and route qualified prospects into an outreach pipeline without manual research for each market.
+
+This system replaced that manual process with a scalable, automated pipeline that integrates scraping tools, AI models, and workflow automation to enable consistent outbound execution across multiple markets simultaneously.
 
 ---
 
